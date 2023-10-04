@@ -16,7 +16,9 @@ public class ZipCodeWilmington {
     public static void hostLecture(Teacher teacher, double numberOfHours){
         List<Learner> learners = studentSingleton.personList.stream()
                 .filter(p -> p instanceof Learner)
+
                 .map(p -> (Learner) p)
+
                 .collect(Collectors.toList());
 
         Learner[] learnersarray = learners.toArray(new Learner[0]);
@@ -30,11 +32,17 @@ public class ZipCodeWilmington {
         //the idea is to grab the instructor based on the id param
         //but since this list that is a list of Person obje
         for (Person person : instructorSingleton.personList) {
+
             if (person instanceof Instructor ){
+
                 Instructor instructor = (Instructor) person;
+
                 if (instructor.getId() == id){
+
                     instructor.lecture((Learner[]) studentSingleton.personList.toArray(), numberOfHours);
+
                     break;
+
                 }
             }
 
