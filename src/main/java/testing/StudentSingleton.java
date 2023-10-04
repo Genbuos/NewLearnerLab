@@ -29,4 +29,6 @@ public class StudentSingleton extends People{
         // and if its null create a new instance
         return INSTANCE;
     }
+
+
 }

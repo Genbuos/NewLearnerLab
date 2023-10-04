@@ -53,7 +53,8 @@ public class People implements Iterable {
     public Person[] toArray(){
         // had to cast personList.toArray(); to
         //person because by its self it will return an array of objects
-        return (Person[]) personList.toArray();
+        Person[] personArray = personList.toArray(new Person[personList.size()]);
+        return personArray;
     }
 
 
