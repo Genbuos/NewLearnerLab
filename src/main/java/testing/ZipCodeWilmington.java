@@ -13,15 +13,20 @@ public class ZipCodeWilmington {
     private ZipCodeWilmington(){
 
     }
+
+    public static void hostLecture(Educator educator, Learner[] learners, double numOfHours ){
+        educator.lecture(learners, numOfHours);
+
+    }
     public static void hostLecture(Teacher teacher, double numberOfHours){
-        List<Learner> learners = studentSingleton.personList.stream()
-                .filter(p -> p instanceof Learner)
+//        List<Learner> learners = studentSingleton.personList.stream()
+//                .filter(p -> p instanceof Learner)
+//
+//                .map(p -> (Learner) p)
+//
+//                .collect(Collectors.toList());
 
-                .map(p -> (Learner) p)
-
-                .collect(Collectors.toList());
-
-        Learner[] learnersarray = learners.toArray(new Learner[0]);
+        Learner[] learnersarray =studentSingleton.personList.toArray(new Learner[0]);
 
         teacher.lecture(learnersarray, numberOfHours);
     }
@@ -31,21 +36,28 @@ public class ZipCodeWilmington {
        //- going inside of the list of instructors
         //the idea is to grab the instructor based on the id param
         //but since this list that is a list of Person obje
-        for (Person person : instructorSingleton.personList) {
+//        for (Person person : instructorSingleton.personList) {
+//
+//            if (person instanceof Instructor ){
+//
+//                Instructor instructor = (Instructor) person;
+//
+//                if (instructor.getId() == id){
+//
+//                    instructor.lecture((Learner[]) studentSingleton.personList.toArray(), numberOfHours);
+//
+//                    break;
+//
+//                }
+//            }
+//
+//        }
 
-            if (person instanceof Instructor ){
 
-                Instructor instructor = (Instructor) person;
+        Instructor instructor = instructorSingleton.findById(id);
 
-                if (instructor.getId() == id){
-
-                    instructor.lecture((Learner[]) studentSingleton.personList.toArray(), numberOfHours);
-
-                    break;
-
-                }
-            }
-
+        if(instructor != null){
+            instructor.lecture(studentSingleton.personList.toArray(new Student[0]), numberOfHours);
         }
 
     }
