@@ -19,7 +19,12 @@ public class TestPeople {
 //        list.add(p3);
 //        list.add(p4);
 //        list.add(p5);
-        var people = new People();
+        var people = new People() {
+            @Override
+            public Person[] toArray() {
+                return new Person[0];
+            }
+        };
         people.add(p1);
         assertNotNull(people);
     }
@@ -27,7 +32,12 @@ public class TestPeople {
     @Test
     public void testRemove(){
         var jordy = new Person(1, "j");
-        var list = new People();
+        var list = new People() {
+            @Override
+            public Person[] toArray() {
+                return new Person[0];
+            }
+        };
         list.add(jordy);
         list.remove(jordy);
         assertFalse(list.contains(jordy));
@@ -36,7 +46,12 @@ public class TestPeople {
     @Test
     public void testFindById(){
         var devon = new Person(1,"Devon");
-        var ppl = new People();
+        var ppl = new People() {
+            @Override
+            public Person[] toArray() {
+                return new Person[0];
+            }
+        };
         ppl.add(devon);
         assertTrue(ppl.findById(1) == devon);
     }

@@ -40,4 +40,18 @@ public class ZipCodeWilmington {
 
     }
 
+    @Test
+    void testHostLecture3(){
+        var totalTimeWorked = Educator.INSTRUCTOR2.getTimeWorked();
+
+        Learner learner = new Student(1, "Jordy");
+        Learner learner2 = new Student(2, "Jordy");
+        Learner learner3= new Student(3, "Jordy");
+        Learner[] learners = new Learner[]{learner, learner2, learner3};
+        testing.ZipCodeWilmington.hostLecture(Educator.INSTRUCTOR1, learners, 40 );
+
+        assertEquals(totalTimeWorked + 40, Educator.INSTRUCTOR1.getTimeWorked());
+        ;
+    }
+
 }

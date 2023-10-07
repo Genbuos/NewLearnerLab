@@ -8,7 +8,7 @@ import java.util.List;
  * @class is an unexntedable class and extends People
  *
  */
-public class StudentSingleton extends People{
+public class StudentSingleton extends People<Student>{
     private static final StudentSingleton INSTANCE = new StudentSingleton();
 
 
@@ -31,4 +31,9 @@ public class StudentSingleton extends People{
     }
 
 
+    @Override
+    public Student[] toArray() {
+        Student[] studentArray = personList.toArray(new Student[personList.size()]);
+        return studentArray;
+    }
 }
