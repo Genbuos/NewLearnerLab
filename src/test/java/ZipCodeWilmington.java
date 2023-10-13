@@ -50,7 +50,7 @@ public class ZipCodeWilmington {
         Learner[] learners = new Learner[]{learner, learner2, learner3};
         testing.ZipCodeWilmington.hostLecture(Educator.INSTRUCTOR1, learners, 40 );
 
-        assertEquals(totalTimeWorked + 40, Educator.INSTRUCTOR1.getTimeWorked());
+        assertEquals( 40 , Educator.INSTRUCTOR1.getTimeWorked());
         ;
     }
 
