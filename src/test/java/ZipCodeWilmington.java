@@ -42,7 +42,7 @@ public class ZipCodeWilmington {
 
     @Test
     void testHostLecture3(){
-        var totalTimeWorked = Educator.INSTRUCTOR2.getTimeWorked();
+
 
         Learner learner = new Student(1, "Jordy");
         Learner learner2 = new Student(2, "Jordy");
