@@ -32,4 +32,15 @@ public class TestInstructorS {
 
     }
 
+    @Test
+    void testRemove(){
+        Instructor newInstructor = new Instructor(3, "New Instructor");
+        singleton.add(newInstructor);
+        assertTrue(singleton.contains(newInstructor));
+
+        singleton.remove(newInstructor.getId());
+
+        assertEquals(0 , singleton.count());
+    }
+
 }

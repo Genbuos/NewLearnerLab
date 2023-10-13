@@ -7,25 +7,19 @@ import testing.StudentSingleton;
 
 public class TestStudentS {
    private StudentSingleton studentSingleton;
-   //BeforeEach annotationDenotes that the annotated method should be
-   // executed before each @Test, @RepeatedTest, @ParameterizedTest,
-   // or @TestFactory method in the current class; analogous to JUnit 4’s
-   // @Before. Such methods are inherited – unless they are overridden or
-   // superseded (i.e., replaced
-   // based on signature only, irrespective of Java’s visibility rules).
-
-    @BeforeEach
-    public void setUp() {
-        studentSingleton = StudentSingleton.getInstance();
-
-    }
+   @BeforeEach
+   public void setUp() {
+       if (studentSingleton == null) {
+           studentSingleton = StudentSingleton.getInstance();
+       }
+   }
 
     @Test
     public void testGetInstance() {
         // Ensure that calling getInstance() multiple times returns the same instance
         StudentSingleton instance1 = StudentSingleton.getInstance();
-        StudentSingleton instance2 = StudentSingleton.getInstance();
-        assertSame(instance1, instance2);
+
+        assertSame(instance1, studentSingleton);
     }
 
     @Test
@@ -39,12 +33,35 @@ public class TestStudentS {
     @Test
     public void testSingletonBehavior() {
         // Ensure that the instance is a singleton
-        StudentSingleton anotherInstance = StudentSingleton.getInstance();
-        assertSame(studentSingleton, anotherInstance);
+        assertSame(studentSingleton, StudentSingleton.getInstance());
     }
 
 
+    @Test
+    void testRemoveAll_and_Count(){
+        var newVal = new Student(5,"Blanca");
+        var newV = new Student(3,"Blanca");
+        var newVa = new Student(2,"Blanca");
+        var newVal1 = new Student(1,"Blanca");
 
+        studentSingleton.add(newV);
+        studentSingleton.add(newVa);
+        studentSingleton.add(newVal);
+        studentSingleton.add(newVal1);
+
+        assertTrue(studentSingleton.contains(newV));
+        assertTrue(studentSingleton.contains(newVa));
+        assertTrue(studentSingleton.contains(newVal));
+        assertTrue(studentSingleton.contains(newVal1));
+
+        studentSingleton.removeAll();
+
+        assertEquals(studentSingleton.count(), studentSingleton.toArray().length);
+        assertEquals(studentSingleton.count(), 0);
+        assertEquals(0, studentSingleton.toArray().length);
+
+
+    }
 
 
 }
