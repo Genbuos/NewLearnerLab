@@ -9,16 +9,7 @@ public class TestPeople {
     @Test
     public void testAdd(){
         var p1 = new Person(1, "Julio");
-        var p2 = new Person(2, "Jordy");
-        var p3 = new Person(3, "Tilmar");
-        var p4 = new Person(4, "Tanzir");
-        var p5 = new Person(5, "Ki");
-//        var list = new ArrayList<Person>();
-//        list.add(p1);
-//        list.add(p2);
-//        list.add(p3);
-//        list.add(p4);
-//        list.add(p5);
+
         var people = new People() {
             @Override
             public Person[] toArray() {

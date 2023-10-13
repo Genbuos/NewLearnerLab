@@ -33,25 +33,7 @@ public class ZipCodeWilmington {
 
     public static void hostLecture(long id, double numberOfHours){
 
-       //- going inside of the list of instructors
-        //the idea is to grab the instructor based on the id param
-        //but since this list that is a list of Person obje
-//        for (Person person : instructorSingleton.personList) {
-//
-//            if (person instanceof Instructor ){
-//
-//                Instructor instructor = (Instructor) person;
-//
-//                if (instructor.getId() == id){
-//
-//                    instructor.lecture((Learner[]) studentSingleton.personList.toArray(), numberOfHours);
-//
-//                    break;
-//
-//                }
-//            }
-//
-//        }
+
 
 
         Instructor instructor = instructorSingleton.findById(id);

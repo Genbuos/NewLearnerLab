@@ -31,6 +31,12 @@ public class TestEducator {
 
     }
 
+    @Test
+    void testSetTimeWorked(){
+        Educator.INSTRUCTOR3.setTimeWorked(90);
+
+        assertTrue(90 == Educator.INSTRUCTOR3.getTimeWorked());
+    }
 
 
 

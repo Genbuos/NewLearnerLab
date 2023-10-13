@@ -33,4 +33,5 @@ public class TestStudent {
 
         assertEquals(numOfHoursLearned, student.getTotalStudyTime());
     }
+
 }
